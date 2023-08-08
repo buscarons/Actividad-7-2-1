@@ -23,19 +23,20 @@ async function fetchData(URL) {
   try {
     const response = await fetch(URL);
     const data = await response.json();
-    return data
+    return data;
   }
   catch (error) {
-    console.log(error)
+    console.log(error);
+    return null;
   }
 }
 
-async function initApp(URL) {
-  const JSONData = await fetchData(URL);
-  if (JSONData) {
-    showData(JSONData);
+async function activar(URL) {
+  const DATAJSON = await fetchData(URL);
+  if (DATAJSON) {
+   showData(DATAJSON.students);
   }
+
 }
 
-window.onload = initApp(DATA_URL);
-
+activar(DATA_URL);
